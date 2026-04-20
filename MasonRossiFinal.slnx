@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ClientApp/ClientApp.csproj" />
+  <Project Path="EventService/EventService.csproj" />
+  <Project Path="TicketService/TicketService.csproj" />
+</Solution>

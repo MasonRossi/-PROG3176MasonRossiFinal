@@ -1,0 +1,27 @@
+using Microsoft.EntityFrameworkCore;
+using TicketService.Data;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddHttpClient();
+builder.Services.AddDbContext<TicketDbContext>(options =>
+    options.UseSqlite("Data Source=tickets.db"));
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

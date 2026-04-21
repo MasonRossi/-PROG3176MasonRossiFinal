@@ -149,3 +149,4 @@ C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\M
 C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\MasonRossiFinal\EventService\obj\Debug\net10.0\EventService.pdb
 C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\MasonRossiFinal\EventService\obj\Debug\net10.0\EventService.genruntimeconfig.cache
 C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\MasonRossiFinal\EventService\obj\Debug\net10.0\ref\EventService.dll
+C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\MasonRossiFinal\EventService\obj\Debug\net10.0\EventService.sourcelink.json

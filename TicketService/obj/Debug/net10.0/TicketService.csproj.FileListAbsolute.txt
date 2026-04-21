@@ -149,3 +149,4 @@ C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\M
 C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\MasonRossiFinal\TicketService\obj\Debug\net10.0\TicketService.pdb
 C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\MasonRossiFinal\TicketService\obj\Debug\net10.0\TicketService.genruntimeconfig.cache
 C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\MasonRossiFinal\TicketService\obj\Debug\net10.0\ref\TicketService.dll
+C:\Users\maros\Downloads\Y3S2\Programming Distributed Applications Development\MasonRossiFinal\TicketService\obj\Debug\net10.0\TicketService.sourcelink.json

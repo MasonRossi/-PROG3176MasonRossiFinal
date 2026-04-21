@@ -7,7 +7,7 @@ var ticketServiceUrl = "http://localhost:5116/tickets";
 Console.WriteLine("Starting Client App...\n");
 while (true)
 {
-    Console.WriteLine("\n===== MasonRossiFinal Client =====");
+    Console.WriteLine("\n----- Ticket App Client -----");
     Console.WriteLine("1. Create Event");
     Console.WriteLine("2. Create Ticket");
     Console.WriteLine("3. View Events");
@@ -123,7 +123,7 @@ static async Task ViewEvents(HttpClient client, string url)
         return;
     }
 
-    Console.WriteLine("\n===== EVENTS =====");
+    Console.WriteLine("\n----- EVENTS -----");
 
     foreach (var e in events)
     {
@@ -145,7 +145,7 @@ static async Task ViewTickets(HttpClient client, string url)
         return;
     }
 
-    Console.WriteLine("\n===== TICKETS =====");
+    Console.WriteLine("\n----- TICKETS -----");
 
     foreach (var t in tickets)
     {

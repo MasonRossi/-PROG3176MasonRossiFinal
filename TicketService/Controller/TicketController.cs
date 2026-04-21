@@ -114,7 +114,7 @@ namespace TicketService.Controllers
 
         private async Task<HttpResponseMessage> GetEventAsync(int eventId)
         {
-            return await _httpClient.GetAsync($"http://localhost:5200/events/{eventId}");
+            return await _httpClient.GetAsync($"http://eventservice:80/events/{eventId}");
 
         }
     }

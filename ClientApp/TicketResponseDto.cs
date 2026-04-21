@@ -1,7 +1,7 @@
 public class TicketResponseDto
 {
     public int Id { get; set; }
-    public int EventId { get; set; }
-    public string BuyerName { get; set; }
-    public string EventName { get; set; }
+    public required int EventId { get; set; }
+    public required string BuyerName { get; set; }
+    public required string EventName { get; set; }
 }

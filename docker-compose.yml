@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  eventservice:
+    build:
+      context: ./EventService
+    ports:
+      - "5200:80"
+    container_name: eventservice
+    volumes:
+      - ./data/event:/app/data
+
+  ticketservice:
+    build:
+      context: ./TicketService
+    ports:
+      - "5116:80"
+    container_name: ticketservice
+    depends_on:
+      - eventservice
+    volumes:
+      - ./data/ticket:/app/data

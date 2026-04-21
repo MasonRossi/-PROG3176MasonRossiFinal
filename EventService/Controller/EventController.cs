@@ -50,7 +50,7 @@ namespace EventService.Controllers
             if (ev == null)
                 return NotFound("Event not found");
 
-            await _httpClient.DeleteAsync($"https://your-ticket-service.azurewebsites.net/tickets/eventTicket/{id}");
+            await _httpClient.DeleteAsync($"http://ticketservice:80/tickets/eventTicket/{id}");
 
             _context.Events.Remove(ev);
             _context.SaveChanges();

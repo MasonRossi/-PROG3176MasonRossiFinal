@@ -10,9 +10,13 @@ builder.Services.AddDbContext<TicketDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.WebHost.UseUrls("http://+:80");
 var app = builder.Build();
-
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<TicketDbContext>();
+    db.Database.EnsureCreated();
+}
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

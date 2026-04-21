@@ -1,0 +1,35 @@
+name: Build and deploy ASP.NET Core app to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore ./EventService/EventService.csproj
+
+      - name: Build
+        run: dotnet build ./EventService/EventService.csproj --configuration Release --no-restore
+
+      - name: Publish
+        run: dotnet publish ./EventService/EventService.csproj -c Release -o publish
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: YOUR_APP_NAME_HERE
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./publish

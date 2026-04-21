@@ -74,7 +74,6 @@ static async Task CreateEvent(HttpClient client, string url)
     {
         Name = name,
         Location = location,
-        Date = DateTime.Now,
         Capacity = 100
     };
 

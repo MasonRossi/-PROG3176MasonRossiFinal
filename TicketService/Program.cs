@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
 builder.Services.AddDbContext<TicketDbContext>(options =>
-    options.UseSqlite("Data Source=tickets.db"));
+    options.UseSqlite("Data Source=/app/data/tickets.db"));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

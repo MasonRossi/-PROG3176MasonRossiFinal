@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy Event Service
 
 on:
   push:
@@ -6,16 +6,30 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0
 
+      - name: Restore dependencies
+        run: dotnet restore EventService/EventService.csproj
+
       - name: Build
-        run: dotnet build
+        run: dotnet build EventService/EventService.csproj --configuration Release --no-restore
+
+      - name: Publish
+        run: dotnet publish EventService/EventService.csproj -c Release -o publish
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: MasonRossiEventsService
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: publish

@@ -22,7 +22,8 @@ namespace TicketService.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTicket(Ticket ticket)
         {
-            var response = await GetEventAsync(ticket.EventId);
+            // Call Event Service to check if event exists
+            var response = await GetEvent(ticket.EventId);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -35,8 +36,6 @@ namespace TicketService.Controllers
             {
                 PropertyNameCaseInsensitive = true
             });
-
-            //ticket.EventName = eventObj.Name;
 
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
@@ -54,7 +53,8 @@ namespace TicketService.Controllers
 
             foreach (var t in tickets)
             {
-                var response = await GetEventAsync(t.EventId);
+                // Call Event Service to get event details
+                var response = await GetEvent(t.EventId);
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -101,6 +101,7 @@ namespace TicketService.Controllers
             return NoContent();
         }
 
+        // delete all tickets for an event
         [HttpDelete("eventTicket/{eventId}")]
         public IActionResult DeleteTicketsByEvent(int eventId)
         {
@@ -112,7 +113,7 @@ namespace TicketService.Controllers
             return NoContent();
         }
 
-        private async Task<HttpResponseMessage> GetEventAsync(int eventId)
+        private async Task<HttpResponseMessage> GetEvent(int eventId)
         {
             return await _httpClient.GetAsync($"http://eventservice:80/events/{eventId}");
 
